@@ -1,9 +1,7 @@
-___
 apiVersion: v1
 kind: Namespace
 metadata:
   name: kubeless
-
 ---
 apiVersion: v1
 data:
