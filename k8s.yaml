@@ -1,9 +1,4 @@
 apiVersion: v1
-kind: Namespace
-metadata:
-  name: kubeless
----
-apiVersion: v1
 data:
   builder-image: kubeless/function-image-builder:v1.0.7
   builder-image-secret: ""
@@ -133,7 +128,6 @@ data:
 kind: ConfigMap
 metadata:
   name: kubeless-config
-  namespace: kubeless
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -141,7 +135,6 @@ metadata:
   labels:
     kubeless: controller
   name: kubeless-controller-manager
-  namespace: kubeless
 spec:
   selector:
     matchLabels:
@@ -218,7 +211,6 @@ apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: controller-acct
-  namespace: kubeless
 ---
 apiVersion: apiextensions.k8s.io/v1beta1
 kind: CustomResourceDefinition
